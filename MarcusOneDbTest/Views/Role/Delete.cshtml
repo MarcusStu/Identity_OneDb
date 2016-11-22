@@ -1,0 +1,24 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@using (Html.BeginForm("Delete"))
+{
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <h2>Roles:</h2>
+                @Html.DropDownList("AllRoles", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        @*@ViewBag.AllRoles*@
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to Admin Panel", "Index", "Admin")
+    </div>
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MarcusOneDbTest.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+@*@foreach (var item in Model)
+        {
+            <p>@item.UserName</p>
+            <p>@item.Roles</p>
+        }
+
+    <div>
+        @foreach (var item in Model)
+        {
+            <ul>
+                @item.Roles
+            </ul>
+        }
+
+    </div>*@
+<h1>Admin Control Panel.</h1>
+<p>Logged in as: <strong>@ViewBag.Name</strong>!</p>
+@*<div>
+    <ul>
+        <li id="AdminLinks">@Html.ActionLink("Create New Role", "Index", "Role", null, new { @class = "btn btn-success" })</li>
+
+        <li id="AdminLinks">@Html.ActionLink("Delete Role", "Delete", "Role", null, new { @class = "btn btn-danger" })</liid="AdminLinks">
+
+        <li id="AdminLinks">@Html.ActionLink("Delete Role from User", "DeleteRoleFromUser", "Role", null, new { @class = "btn btn-danger" })</li>
+
+        <li id="AdminLinks">@Html.ActionLink("Assign user to Role", "Assign", "Admin", null, new { @class = "btn btn-warning" })</li>
+    </ul>
+</div>*@
+
+<div>
+    @Html.ActionLink("Create New Role", "Index", "Role", null, new { @class = "btn btn-success" })
+
+    @Html.ActionLink("Delete Role", "Delete", "Role", null, new { @class = "btn btn-danger" })
+
+    @Html.ActionLink("Delete Role from User", "DeleteRoleFromUser", "Role", null, new { @class = "btn btn-danger" })
+
+    @Html.ActionLink("Assign user to Role", "Assign", "Admin", null, new { @class = "btn btn-warning" })
+</div>
+
+
+
+<b>@ViewBag.ResultMessage</b>
