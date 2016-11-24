@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity;
 
 namespace MarcusOneDbTest.Controllers
 {
+    [OverrideAuthorization]
+    [Authorize(Roles = "Admin")]
     public class PeopleController : Controller
     {
         private TheContext db = new TheContext();
@@ -40,6 +42,7 @@ namespace MarcusOneDbTest.Controllers
         }
 
         // GET: People/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             ViewBag.CityID = new SelectList(db.Cities, "Id", "Name");
@@ -52,6 +55,7 @@ namespace MarcusOneDbTest.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Create([Bind(Include = "Id,Name,CityID,CountryID,AddedById,AddedByUserName")] Person person)
         {
             if (ModelState.IsValid)
@@ -69,6 +73,7 @@ namespace MarcusOneDbTest.Controllers
         }
 
         // GET: People/Edit/5
+        [AllowAnonymous]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +95,7 @@ namespace MarcusOneDbTest.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Edit([Bind(Include = "Id,Name,CityID,CountryID,AddedById,AddedByUserName")] Person person)
         {
             if (ModelState.IsValid)
